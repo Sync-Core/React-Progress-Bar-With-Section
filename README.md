@@ -121,5 +121,6 @@ The `Calendar` component accepts the following props:
 | `nextName`            | string         | `'Next'` | The text label for the Next button.                                                                      |
 | `actionName`          | string         | `'Finish'` | The text label for the Final Action (Finish) button.                                                      |
 | `children`            | React.ReactNode|          | Content to be displayed inside the progress bar component.                                                 |
+| `hideProgressBar`     | boolean        | `true`   | If `false`, hide the ProgressBar block.                                                                      |
 
 ```

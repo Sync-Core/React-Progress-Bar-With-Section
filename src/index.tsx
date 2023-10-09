@@ -16,6 +16,7 @@ interface ProgressBarProps {
   backName?: string;
   nextName?: string;
   actionName?: string;
+  hideProgressBar?: boolean;
 }
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -33,6 +34,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   backName = 'Back',
   nextName = 'Next',
   actionName = 'Finish',
+  hideProgressBar = true,
   children,
 }) => {
   const [currentSectionState, setCurrentSectionState] =
@@ -68,22 +70,24 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div className={`progress-bar ${addClass ? addClass : ''}`}>
-      <div
-        className='common-progress'
-        role='progressbar'
-        aria-valuemin={1}
-        aria-valuemax={totalSections}
-        aria-valuenow={currentSectionState}
-        aria-valuetext={`Section ${currentSectionState} of ${totalSections}`}
-        aria-live='polite'
-      >
+      {hideProgressBar && (
         <div
-          className='common-progress-bar'
-          style={{
-            width: progressBarWidth,
-          }}
-        />
-      </div>
+          className='common-progress'
+          role='progressbar'
+          aria-valuemin={1}
+          aria-valuemax={totalSections}
+          aria-valuenow={currentSectionState}
+          aria-valuetext={`Section ${currentSectionState} of ${totalSections}`}
+          aria-live='polite'
+        >
+          <div
+            className='common-progress-bar'
+            style={{
+              width: progressBarWidth,
+            }}
+          />
+        </div>
+      )}
       {children}
       <div className='progress-btn-block'>
         <button

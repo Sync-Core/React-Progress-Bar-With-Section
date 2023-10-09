@@ -1,6 +1,6 @@
 {
   "name": "react-progress-bar-with-section",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "A customizable progress bar component for React.",
   "main": "dist/bundle.js",
